@@ -41,12 +41,67 @@
                         a Software Engineer. I believe the qualities that make me truly valuable are my 
                         abilities to inspire thought, think outside the box, and lead through servitude.
                         I truly believe that life is journey that we must continuely grow through no 
-                        matter the circumstances that we may face and, with hardwork and dedication nothing can't be accomplished. 
+                        matter the circumstances that we may face. With hardwork and dedication our wildest dreams can be 
+                        accomplished. 
                     </p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Backend Development</span><br>API and Database Development</li>
+                            <li><span>Frontend Development</span><br>Development for User Interaction</li>
+                            <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>LA Fitness</span><br>Personal Training Counselor</li>
+                            <li><span>Eddie V's Prime Seafood</span><br>Server</li>
+                            <li><span>The Capital Grille</span><br>Server Assistant</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>Boca Code</span><br>Software Engineering Career Course 2022</li>
+                            <li><span>Florida International University</span><br>Business and Finance 2015-1016</li>
+                            <li><span>Cypress Bay High School</span><br>H.S Diploma 2010-2014</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Services -->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="service-list">
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const tablinks = document.getElementsByClassName("tab-links");
+        const tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+    </script>
 
 </body>
 </html>
