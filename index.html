@@ -19,9 +19,9 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <i class="fa-regular fa-circle-xmark" onclick="closemenu()"></i>
+                    <i class="fas fa-regular fa-circle-xmark" onclick="closemenu()"></i>
                 </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
                 <p>Software Engineer</p>
@@ -164,12 +164,13 @@
                 <a href="images/gavin_anderson_2022newresume.pdf" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="text" name="Email" placeholder="Your Email" required>
-                    <textarea name="" rows="6" placeholder="Your Message"></textarea>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -213,11 +214,17 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxum_U-dk8ThIO7V7eYvdO8H1uJoDQXMNZlGPy70dItZK5G50mRCK1JzBsSwUlLfumy/exec'
         const form = document.forms['submit-to-google-sheet']
-      
+        const msg = document.getElementById("msg")
+
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                })
+            })
             .catch(error => console.error('Error!', error.message))
         })
       </script>
